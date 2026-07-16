@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Saessak-dang | My Page</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#e1e4d7",
+                    "on-secondary-fixed": "#00210e",
+                    "background": "#fafafa",
+                    "on-tertiary-container": "#ffc9e7",
+                    "error-container": "#ffdad6",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed": "#c0edca",
+                    "primary-fixed-dim": "#98d868",
+                    "surface-tint": "#346b00",
+                    "on-primary-fixed-variant": "#265100",
+                    "primary": "#265100",
+                    "secondary-fixed-dim": "#a5d1af",
+                    "on-secondary-container": "#436b4f",
+                    "surface": "#f8fbee",
+                    "on-background": "#191d15",
+                    "text-impossible": "#C62828",
+                    "secondary": "#3f674b",
+                    "error": "#ba1a1a",
+                    "outline-variant": "#c2c9b6",
+                    "on-surface": "#191d15",
+                    "on-secondary-fixed-variant": "#274f35",
+                    "on-primary-container": "#aaea78",
+                    "surface-container-lowest": "#ffffff",
+                    "outline": "#727a69",
+                    "surface-dim": "#d8dbcf",
+                    "tertiary-fixed-dim": "#ffaede",
+                    "tertiary-container": "#9a397c",
+                    "tertiary-fixed": "#ffd8ec",
+                    "text-tight": "#B77900",
+                    "on-error-container": "#93000a",
+                    "inverse-surface": "#2e3229",
+                    "on-tertiary-fixed-variant": "#7d1f63",
+                    "on-tertiary-fixed": "#3b002d",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed": "#0b2000",
+                    "surface-bright": "#f8fbee",
+                    "status-available": "#4CAF50",
+                    "text-available": "#2E7D32",
+                    "surface-container-high": "#e6eadd",
+                    "surface-container-low": "#f2f5e8",
+                    "crystal-border": "rgba(255, 255, 255, 0.8)",
+                    "primary-container": "#346b00",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#beebc7",
+                    "inverse-on-surface": "#eff2e5",
+                    "surface-variant": "#e1e4d7",
+                    "status-impossible": "#EF5350",
+                    "primary-fixed": "#b3f581",
+                    "on-primary": "#ffffff",
+                    "surface-container": "#ecefe2",
+                    "status-tight": "#FFB300",
+                    "tertiary": "#7d1f63",
+                    "crystal-surface": "rgba(255, 255, 255, 0.15)",
+                    "inverse-primary": "#98d868",
+                    "on-surface-variant": "#42493a",
+                    "active-sage": "#7FA35C"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "2xl": "1.25rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "16px",
+                    "xs": "4px",
+                    "gutter": "12px",
+                    "lg": "24px",
+                    "sm": "8px",
+                    "margin_mobile": "20px",
+                    "xl": "32px",
+                    "unit": "4px"
+            },
+            "fontFamily": {
+                    "label-bold": ["Be Vietnam Pro"],
+                    "body-md": ["Be Vietnam Pro"],
+                    "display-lg": ["Be Vietnam Pro"],
+                    "body-lg": ["Be Vietnam Pro"],
+                    "headline-sm": ["Be Vietnam Pro"],
+                    "label-sm": ["Be Vietnam Pro"],
+                    "headline-md": ["Be Vietnam Pro"]
+            },
+            "fontSize": {
+                    "label-bold": ["12px", {"lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400"}],
+                    "display-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}],
+                    "headline-sm": ["18px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600"}],
+                    "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "headline-md": ["22px", {"lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #fafafa;
+            color: #191d15;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(32px);
+            -webkit-backdrop-filter: blur(32px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.02);
+        }
+        .bg-mesh {
+            background: radial-gradient(at 0% 0%, rgba(152, 216, 104, 0.15) 0px, transparent 50%),
+                        radial-gradient(at 100% 100%, rgba(63, 103, 75, 0.1) 0px, transparent 50%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-mesh min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full h-16 z-50 bg-crystal-surface backdrop-blur-xl border-b border-crystal-border shadow-sm flex justify-between items-center px-margin_mobile">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary font-bold" data-icon="eco">eco</span>
+<h1 class="font-headline-md text-headline-md-mobile text-primary tracking-tight">새싹당</h1>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:opacity-80 transition-opacity active:scale-95 duration-200" data-icon="menu">menu</button>
+</header>
+<main class="pt-24 px-margin_mobile space-y-6 pb-32 max-w-2xl mx-auto">
+<!-- Profile Card -->
+<section class="glass-card rounded-2xl p-6 flex flex-col items-center">
+<div class="relative mb-4">
+<div class="w-24 h-24 rounded-full overflow-hidden border-2 border-crystal-border shadow-md">
+<img class="w-full h-full object-cover" data-alt="A professional and friendly headshot of a young Korean university student, styled in a clean light-mode aesthetic with soft natural lighting and a blurred minimalist campus background. The student has a bright smile, wearing casual academic attire in a palette of muted greens and soft whites." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAXw3hfgRYITPQSPujJwXwRfwStKgQK81KtwP3-CV89lz0Zw9Zan7yEMIjrExl3n5B1mhu8Nct0VG98Nal5PImFdCjqL1JsGZdn0sQ6W7m1A8xW9Muq_G5p1GItBHJMyJy4s9aGui1Q_E28BCBj-LBcWGVdFd9_oDTF20TCjvTk8XvrYq_u6zi26o8jwY-gx98GQXaibcLEJgmispedVJBXWp6b6zlC-7mFrQOia4LkRjT1TxWr0ZAHLYV-qTzs72j7FSjsYCRuMg"/>
+</div>
+<span class="absolute bottom-0 right-0 bg-primary text-white font-label-bold text-label-sm px-2 py-1 rounded-full border-2 border-white">3기</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-6">새싹 학생</h2>
+<div class="w-full grid grid-cols-3 gap-2 border-t border-crystal-border/30 pt-6">
+<div class="text-center">
+<p class="font-label-bold text-label-bold text-on-surface-variant">남긴 리뷰</p>
+<p class="font-headline-sm text-headline-sm text-primary">12</p>
+</div>
+<div class="text-center border-x border-crystal-border/30">
+<p class="font-label-bold text-label-bold text-on-surface-variant">등록한 식당</p>
+<p class="font-headline-sm text-headline-sm text-primary">3</p>
+</div>
+<div class="text-center">
+<p class="font-label-bold text-label-bold text-on-surface-variant">도움돼요</p>
+<p class="font-headline-sm text-headline-sm text-primary">41</p>
+</div>
+</div>
+</section>
+<!-- Taste Profile -->
+<section class="glass-card rounded-2xl p-6">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">내 취향</h3>
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]" data-icon="insights">insights</span>
+</div>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="bg-secondary-container/40 text-on-secondary-container font-label-bold text-label-sm px-3 py-1.5 rounded-full border border-crystal-border">#얼큰한</span>
+<span class="bg-secondary-container/40 text-on-secondary-container font-label-bold text-label-sm px-3 py-1.5 rounded-full border border-crystal-border">#가성비</span>
+<span class="bg-secondary-container/40 text-on-secondary-container font-label-bold text-label-sm px-3 py-1.5 rounded-full border border-crystal-border">#혼밥</span>
+</div>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between mb-1.5">
+<span class="font-label-bold text-label-bold text-on-surface">국밥</span>
+<span class="font-label-bold text-label-bold text-active-sage">4.2</span>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-active-sage rounded-full" style="width: 84%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-1.5">
+<span class="font-label-bold text-label-bold text-on-surface">분식</span>
+<span class="font-label-bold text-label-bold text-active-sage">3.8</span>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-active-sage opacity-70 rounded-full" style="width: 76%"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- My Reviews -->
+<section class="space-y-4">
+<h3 class="font-headline-sm text-headline-sm text-on-surface px-1">내가 남긴 리뷰</h3>
+<!-- Review Card 1 -->
+<div class="glass-card rounded-2xl p-4 flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-label-bold text-body-md text-on-surface">건국관 식당</h4>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[16px] text-status-tight" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px] text-status-tight" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px] text-status-tight" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px] text-status-tight" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px] text-outline-variant" data-icon="star">star</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">3일 전</span>
+</div>
+<div class="flex gap-2">
+<span class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm px-2 py-0.5 rounded border border-crystal-border">맛있어요</span>
+<span class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm px-2 py-0.5 rounded border border-crystal-border">친절함</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-snug">가성비 최고예요! 양도 넉넉하고 국물 맛이 일품입니다. 매일 와도 질리지 않을 맛이에요.</p>
+<div class="flex gap-4 pt-2 border-t border-crystal-border/30">
+<button class="font-label-bold text-label-sm text-on-surface-variant hover:text-primary transition-colors">수정</button>
+<button class="font-label-bold text-label-sm text-on-surface-variant hover:text-error transition-colors">삭제</button>
+</div>
+</div>
+<!-- Review Card 2 -->
+<div class="glass-card rounded-2xl p-4 flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-label-bold text-body-md text-on-surface">학생회관 푸드코트</h4>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[16px] text-status-tight" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px] text-status-tight" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px] text-status-tight" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px] text-outline-variant" data-icon="star">star</span>
+<span class="material-symbols-outlined text-[16px] text-outline-variant" data-icon="star">star</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">1주일 전</span>
+</div>
+<div class="flex gap-2">
+<span class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm px-2 py-0.5 rounded border border-crystal-border">빠름</span>
+<span class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm px-2 py-0.5 rounded border border-crystal-border">메뉴다양</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-snug">사람이 많아서 자리가 조금 부족하지만 음식은 빨리 나와서 좋아요.</p>
+<div class="flex gap-4 pt-2 border-t border-crystal-border/30">
+<button class="font-label-bold text-label-sm text-on-surface-variant hover:text-primary transition-colors">수정</button>
+<button class="font-label-bold text-label-sm text-on-surface-variant hover:text-error transition-colors">삭제</button>
+</div>
+</div>
+</section>
+</main>
+<!-- FAB -->
+<button class="fixed bottom-24 right-6 w-14 h-14 bg-primary text-white rounded-full shadow-lg flex items-center justify-center border border-crystal-border hover:scale-105 active:scale-95 transition-transform z-40">
+<span class="material-symbols-outlined text-[24px]" data-icon="auto_awesome">auto_awesome</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-md left-1/2 -translate-x-1/2 w-[calc(100%-40px)] z-50 glass-card rounded-full shadow-lg border border-crystal-border flex justify-around items-center px-lg py-sm max-w-md">
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-white/10 rounded-xl px-2 py-1 transition-colors active:scale-90 duration-150">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-white/10 rounded-xl px-2 py-1 transition-colors active:scale-90 duration-150">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="font-label-sm text-label-sm">Search</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-white/10 rounded-xl px-2 py-1 transition-colors active:scale-90 duration-150">
+<span class="material-symbols-outlined" data-icon="rate_review">rate_review</span>
+<span class="font-label-sm text-label-sm">Review</span>
+</button>
+<button class="flex flex-col items-center justify-center text-active-sage font-label-bold hover:bg-white/10 rounded-xl px-2 py-1 transition-colors active:scale-90 duration-150">
+<span class="material-symbols-outlined" data-icon="person" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-sm text-label-sm">내 페이지</span>
+<div class="w-1 h-1 bg-active-sage rounded-full mt-0.5"></div>
+</button>
+</nav>
+<script>
+        // Micro-interactions for scrolling
+        let lastScroll = 0;
+        const header = document.querySelector('header');
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll <= 0) {
+                header.style.boxShadow = 'none';
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.15)';
+            } else {
+                header.style.boxShadow = '0 4px 20px -2px rgba(0, 0, 0, 0.05)';
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
+            }
+            lastScroll = currentScroll;
+        });
+    </script>
+</body></html>
