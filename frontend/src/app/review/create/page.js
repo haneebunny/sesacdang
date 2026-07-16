@@ -74,27 +74,14 @@ export default function CreateReviewGeneral() {
   };
 
   return (
-    <div className="min-h-screen bg-surface text-on-surface antialiased pb-32">
-      {/* Top App Bar (Fixed) */}
-      <header className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-md h-16 z-50 flex items-center justify-between px-margin_mobile bg-surface/85 backdrop-blur-lg border-b border-white/60 shadow-sm">
-        <button 
-          onClick={() => router.back()}
-          aria-label="닫기" 
-          className="p-2 -ml-2 active:scale-95 transition-transform cursor-pointer border-none bg-transparent"
-        >
-          <span className="material-symbols-outlined text-on-surface">close</span>
-        </button>
-        <h1 className="font-headline-sm text-headline-sm text-on-surface font-bold">리뷰 쓰기</h1>
-        <button 
-          onClick={handleSubmit}
-          className="font-headline-sm text-headline-sm text-primary-container font-bold hover:opacity-80 transition-opacity cursor-pointer border-none bg-transparent"
-        >
-          등록
-        </button>
-      </header>
-
+    <div className="min-h-screen bg-background text-on-surface antialiased">
       {/* Main Content Area */}
-      <main className="pt-20 px-margin_mobile space-y-6 max-w-md mx-auto">
+      <main className="pt-24 px-margin_mobile space-y-6 pb-32 max-w-md mx-auto w-full flex-1">
+        {/* Page Title */}
+        <div className="flex justify-between items-center pt-2">
+          <h2 className="font-headline-sm text-headline-sm text-on-surface font-bold">리뷰 쓰기</h2>
+        </div>
+
         {/* Restaurant Selector Card */}
         <section className="glass-card p-4 rounded-2xl flex flex-col gap-2 shadow-sm bg-white/30">
           <label className="font-label-bold text-xs text-on-surface-variant font-semibold px-1">리뷰를 작성할 식당 선택</label>
@@ -196,19 +183,17 @@ export default function CreateReviewGeneral() {
             }`}></div>
           </button>
         </section>
-      </main>
 
-      {/* Bottom Action Button */}
-      <footer className="fixed bottom-0 left-0 right-0 p-margin_mobile bg-gradient-to-t from-surface via-surface/90 to-transparent z-40">
-        <div className="max-w-md mx-auto">
+        {/* Submit Button */}
+        <section className="pt-4 pb-8">
           <button 
             onClick={handleSubmit}
             className="w-full h-14 bg-primary text-white rounded-xl font-headline-sm text-headline-sm shadow-lg active:scale-95 transition-all flex items-center justify-center gap-2 border-none cursor-pointer"
           >
             리뷰 등록하기
           </button>
-        </div>
-      </footer>
+        </section>
+      </main>
     </div>
   );
 }

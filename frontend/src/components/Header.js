@@ -6,9 +6,9 @@ import { usePathname } from "next/navigation";
 export default function Header() {
   const pathname = usePathname();
 
-  // 상세 페이지 (/restaurants/[id]) 또는 리뷰 작성 페이지 (/restaurants/[id]/review, /review/create)인지 체크
+  // 상세 페이지 (/restaurants/[id]) 또는 리뷰 작성 페이지 (/restaurants/[id]/review)인지 체크
   const isDetailPage = /^\/restaurants\/\d+$/.test(pathname);
-  const isReviewPage = /^\/restaurants\/\d+\/review$/.test(pathname) || pathname === "/review/create";
+  const isReviewPage = /^\/restaurants\/\d+\/review$/.test(pathname);
 
   if (isDetailPage || isReviewPage) {
     return null;

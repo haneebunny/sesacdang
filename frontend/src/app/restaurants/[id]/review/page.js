@@ -70,9 +70,9 @@ export default function CreateReview({ params }) {
   };
 
   return (
-    <div className="min-h-screen bg-surface text-on-surface antialiased pb-32">
+    <div className="min-h-screen bg-background text-on-surface antialiased pb-32">
       {/* Top App Bar (Fixed) */}
-      <header className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-md h-16 z-50 flex items-center justify-between px-margin_mobile bg-surface/85 backdrop-blur-lg border-b border-white/60 shadow-sm">
+      <header className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-md h-16 z-50 flex items-center justify-between px-margin_mobile bg-white/30 backdrop-blur-2xl border-b border-white/80 shadow-sm">
         <button 
           onClick={() => router.back()}
           aria-label="닫기" 

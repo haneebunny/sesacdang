@@ -27,6 +27,26 @@
 
 ## 📂 개발 로그 이력
 
+### 2026-07-17: 리뷰 작성 탭 UI 및 레이아웃 홈 화면 기준 통일
+- **작업 브랜치**: `feature/fe-review-layout-fix`
+- **구현 기능 및 변경 사항**:
+  - [x] 리뷰 생성 페이지(`/review/create`)에서 전역 헤더(`Header.js`)와 바텀 네비게이션 바(`BottomNavigation.js`)가 노출되도록 예외 처리 수정
+  - [x] `/review/create/page.js` 내부의 fixed 헤더와 fixed 푸터(등록 버튼) 제거
+  - [x] 리뷰 쓰기 페이지 본문 맨 위로 스크롤 가능하게 `리뷰 쓰기` 타이틀 추가 및 본문 하단에 `리뷰 등록하기` 버튼을 배치하여 바텀바와 겹침 해결
+  - [x] 페이지 컨테이너 배경색을 기존 `bg-surface`에서 홈 화면과 동일한 `bg-background`로 변경하고 패딩값을 정렬
+  - [x] 개별 식당 상세 리뷰 작성 페이지(`/restaurants/[id]/review`)의 배경색 및 헤더 스타일도 일관되게 맞춤
+- **수정/생성 파일**:
+  - [MODIFY] [Header.js](file:///c:/Users/bbigs/sesac_pjt/sesacdang/frontend/src/components/Header.js)
+  - [MODIFY] [BottomNavigation.js](file:///c:/Users/bbigs/sesac_pjt/sesacdang/frontend/src/components/BottomNavigation.js)
+  - [MODIFY] [page.js](file:///c:/Users/bbigs/sesac_pjt/sesacdang/frontend/src/app/review/create/page.js)
+  - [MODIFY] [page.js](file:///c:/Users/bbigs/sesac_pjt/sesacdang/frontend/src/app/restaurants/[id]/review/page.js)
+- **테스트 결과 / 검증 내용**:
+  - [x] `npm run lint` 검사 통과
+- **특이사항 및 전달사항**:
+  - 이번 레이아웃 정합성 및 배경 톤앤매너 수정을 통해 앱 쉘의 일관된 사용성을 완성했습니다.
+
+---
+
 ### 2026-07-17: 개발 로그 기록 체계 구축 및 규칙 추가
 - **작업 브랜치**: `feature/devlog-setup`
 - **구현 기능 및 변경 사항**:
