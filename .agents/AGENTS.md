@@ -148,7 +148,33 @@ git commit -m "feat: 비플페이 필터 지도 UI 구현"
 git push origin feature/fe-map   # 내 브랜치로 푸시 (main 아님!)
 ```
 
-그다음 GitHub에서 `Compare & pull request` → 리뷰어에 **`haneebunny`** 지정 → 작업 내용 요약 작성 → `Create pull request` → **조장에게 알린다.**
+그다음 GitHub에서 `Compare & pull request` → 리뷰어에 **`haneebunny`** 지정 → 아래 템플릿에 맞추어 **작업 내용 요약(PR 메시지) 작성** → `Create pull request` → **조장에게 알린다.**
+
+#### 📝 PR 메시지 표준 템플릿
+PR을 생성할 때는 반드시 다음 구조의 한국어 템플릿을 사용하여 작성한다.
+
+```markdown
+🖥️ 구현한 화면 목록
+- [화면명] ([경로]): [설명 및 제공 기능]
+  - 예: 식당 상세 페이지 (/restaurants/[id]): 식당 메타 정보, AI 추정 별점, 리뷰 목록, 메뉴 리스트 제공.
+
+✨ 주요 변경 사항
+- [변경 항목명]: [상세 구현 내용과 해결 접근 방식]
+  - 예: LocalStorage 연동: restaurantsData.js 모듈을 도입하여 새로고침이나 페이지 이동 간에도 추가/삭제된 리뷰 데이터가 유기적으로 보존 및 연동되게 구성했습니다.
+
+🧪 테스트한 내용
+- [수행한 테스트 명령어 및 결과 요약]
+  - 예: `npm run lint` && `npm run build` 테스트를 통과했습니다.
+  - 예: 브라우저 서브에이전트(Playwright)를 구동해 홈 화면 ➡️ AI 검색 ➡️ 상세 ➡️ 리뷰 작성 ➡️ 마이페이지 데이터 갱신 및 삭제의 풀 시나리오가 에러 없이 작동함을 검증했습니다.
+
+⚠️ 남아 있는 문제 및 주의사항
+- [현재 제약 사항, 향후 API 연동 필요 항목, 특이사항 등]
+  - 예: LocalStorage Mocking: 현재 백엔드 API 연동 전으로 로컬 저장소에 Mock 데이터를 가공해 쓰고 있습니다. 추후 FastAPI API 구현이 완료되면 DB 연동 API로 호출을 마이그레이션해야 합니다.
+
+📁 참고한 design_reference 파일
+- [참고 및 분석한 원본 HTML/디자인 파일 경로]
+  - 예: frontend/design_reference/detail.html (식당 상세)
+```
 
 ### ⚠️ 필수 주의사항
 
