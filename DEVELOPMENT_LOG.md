@@ -35,11 +35,14 @@
   - [x] 리뷰 쓰기 페이지 본문 맨 위로 스크롤 가능하게 `리뷰 쓰기` 타이틀 추가 및 본문 하단에 `리뷰 등록하기` 버튼을 배치하여 바텀바와 겹침 해결
   - [x] 페이지 컨테이너 배경색을 기존 `bg-surface`에서 홈 화면과 동일한 `bg-background`로 변경하고 패딩값을 정렬
   - [x] 개별 식당 상세 리뷰 작성 페이지(`/restaurants/[id]/review`)의 배경색 및 헤더 스타일도 일관되게 맞춤
+  - [x] 바텀 네비게이션 바(`BottomNavigation.js`) 배경을 불투명한 `bg-surface-container`로 변경하여 스크롤 시 뒷배경(초록 버튼 등) 비침 문제 및 디자인 불일치 해결
+  - [x] 마이페이지(`/mypage/page.js`)에 적용되어 있던 그라데이션 배경 및 뒷배경의 글로우 데코 요소를 삭제하여 홈 화면의 기본 `bg-background` 레이아웃과 일관되게 통일
 - **수정/생성 파일**:
   - [MODIFY] [Header.js](file:///c:/Users/bbigs/sesac_pjt/sesacdang/frontend/src/components/Header.js)
   - [MODIFY] [BottomNavigation.js](file:///c:/Users/bbigs/sesac_pjt/sesacdang/frontend/src/components/BottomNavigation.js)
-  - [MODIFY] [page.js](file:///c:/Users/bbigs/sesac_pjt/sesacdang/frontend/src/app/review/create/page.js)
-  - [MODIFY] [page.js](file:///c:/Users/bbigs/sesac_pjt/sesacdang/frontend/src/app/restaurants/[id]/review/page.js)
+  - [MODIFY] [page.js (review/create)](file:///c:/Users/bbigs/sesac_pjt/sesacdang/frontend/src/app/review/create/page.js)
+  - [MODIFY] [page.js (restaurants/[id]/review)](file:///c:/Users/bbigs/sesac_pjt/sesacdang/frontend/src/app/restaurants/[id]/review/page.js)
+  - [MODIFY] [page.js (mypage)](file:///c:/Users/bbigs/sesac_pjt/sesacdang/frontend/src/app/mypage/page.js)
 - **테스트 결과 / 검증 내용**:
   - [x] `npm run lint` 검사 통과
 - **특이사항 및 전달사항**:

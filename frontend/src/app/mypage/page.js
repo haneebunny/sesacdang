@@ -63,13 +63,7 @@ export default function MyPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#98d868]/15 via-transparent to-[#3f674b]/10 pb-36 text-on-surface">
-      {/* Background Decorative Element */}
-      <div className="fixed top-0 left-0 w-full h-full pointer-events-none -z-10 overflow-hidden">
-        <div className="absolute top-1/4 -left-10 w-64 h-64 bg-primary-fixed/20 opacity-20 blur-[100px] rounded-full"></div>
-        <div className="absolute bottom-1/4 -right-10 w-72 h-72 bg-secondary-fixed-dim/20 opacity-20 blur-[100px] rounded-full"></div>
-      </div>
-
+    <div className="min-h-screen bg-background pb-36 text-on-surface">
       <main className="pt-24 px-margin_mobile space-y-6 max-w-md mx-auto w-full flex-1">
         {/* Profile Card */}
         <section className="glass-card rounded-2xl p-6 flex flex-col items-center shadow-sm bg-white/30">
