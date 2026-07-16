@@ -7,6 +7,12 @@ import { usePathname } from "next/navigation";
 export default function BottomNavigation() {
   const pathname = usePathname();
 
+  // 리뷰 작성 페이지 (/restaurants/[id]/review, /review/create)인지 체크하여 숨김
+  const isReviewPage = /^\/restaurants\/\d+\/review$/.test(pathname) || pathname === "/review/create";
+  if (isReviewPage) {
+    return null;
+  }
+
   const navItems = [
     {
       name: "홈",
