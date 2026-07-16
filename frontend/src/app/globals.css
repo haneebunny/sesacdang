@@ -134,3 +134,19 @@ body {
   display: none;
 }
 
+/* 스크롤 성능 및 UI 깨짐 방지 최적화 */
+html, body {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: none;
+}
+
+/* fixed 및 sticky 요소 GPU 하드웨어 가속 유도 (툭툭 끊김 해결) */
+.fixed, .sticky {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+}
+

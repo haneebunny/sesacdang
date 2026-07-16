@@ -37,12 +37,15 @@
   - [x] 개별 식당 상세 리뷰 작성 페이지(`/restaurants/[id]/review`)의 배경색 및 헤더 스타일도 일관되게 맞춤
   - [x] 바텀 네비게이션 바(`BottomNavigation.js`) 배경의 반투명(글래스모피즘) 스타일은 유지하되, 불투명도를 `bg-surface-container/85`(85% 불투명도) 및 `backdrop-blur-2xl`로 미세 조정하여 스크롤 시 뒷배경 비침으로 인한 탭별 색상 차이 현상을 방지
   - [x] 마이페이지(`/mypage/page.js`)에 적용되어 있던 그라데이션 배경 및 뒷배경의 글로우 데코 요소를 삭제하여 홈 화면의 기본 `bg-background` 레이아웃과 일관되게 통일
+  - [x] fixed 요소(헤더, 바텀바)의 스크롤 시 툭툭 끊김 및 미세 흔들림 현상을 제거하기 위해 `Header.js` 및 `restaurants/[id]/review/page.js`에서 translate transform을 제거하고, left/right 0와 max-w-md mx-auto 래퍼 구조로 변경
+  - [x] `globals.css`에 GPU 하드웨어 가속(`will-change: transform`, `translate3d(0,0,0)`) 및 iOS 모바일 터치 스크롤 최적화 코드를 추가하여 스크롤 시 렌더링 프레임 저하 및 화면 깨짐 개선
 - **수정/생성 파일**:
   - [MODIFY] [Header.js](file:///c:/Users/bbigs/sesac_pjt/sesacdang/frontend/src/components/Header.js)
   - [MODIFY] [BottomNavigation.js](file:///c:/Users/bbigs/sesac_pjt/sesacdang/frontend/src/components/BottomNavigation.js)
   - [MODIFY] [page.js (review/create)](file:///c:/Users/bbigs/sesac_pjt/sesacdang/frontend/src/app/review/create/page.js)
   - [MODIFY] [page.js (restaurants/[id]/review)](file:///c:/Users/bbigs/sesac_pjt/sesacdang/frontend/src/app/restaurants/[id]/review/page.js)
   - [MODIFY] [page.js (mypage)](file:///c:/Users/bbigs/sesac_pjt/sesacdang/frontend/src/app/mypage/page.js)
+  - [MODIFY] [globals.css](file:///c:/Users/bbigs/sesac_pjt/sesacdang/frontend/src/app/globals.css)
 - **테스트 결과 / 검증 내용**:
   - [x] `npm run lint` 검사 통과
 - **특이사항 및 전달사항**:
