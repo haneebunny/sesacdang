@@ -187,22 +187,34 @@
 </div>
 </section>
 <!-- Filter Chips -->
-<section class="flex gap-2 overflow-x-auto py-1 -mx-margin_mobile px-margin_mobile">
+<section class="flex gap-2 py-1 -mx-margin_mobile px-margin_mobile overflow-visible">
 <button class="flex-none bg-primary-container text-white px-4 py-2 rounded-full font-label-bold text-label-bold shadow-md shadow-primary-container/20 flex items-center gap-1">
                 비플페이 ON
             </button>
 <button class="flex-none bg-primary-container text-white px-4 py-2 rounded-full font-label-bold text-label-bold shadow-md shadow-primary-container/20">
                 세이프존 ON
             </button>
-<button class="flex-none bg-white/40 backdrop-blur-xl border border-white/80 text-secondary px-4 py-2 rounded-full font-label-bold text-label-bold flex items-center gap-1">
+<div class="relative flex-none group">
+<button class="bg-white/40 backdrop-blur-xl border border-white/80 text-secondary px-4 py-2 rounded-full font-label-bold text-label-bold flex items-center gap-1 cursor-pointer">
                 카테고리 <span class="material-symbols-outlined text-[16px]">expand_more</span>
 </button>
-<button class="flex-none bg-white/40 backdrop-blur-xl border border-white/80 text-secondary px-4 py-2 rounded-full font-label-bold text-label-bold">
-                가격
-            </button>
-<button class="flex-none bg-white/40 backdrop-blur-xl border border-white/80 text-secondary px-4 py-2 rounded-full font-label-bold text-label-bold">
-                거리순
-            </button>
+<div class="absolute top-full left-0 mt-2 z-50 bg-white/90 backdrop-blur-xl border border-white/80 rounded-2xl shadow-xl overflow-hidden min-w-[160px] hidden group-hover:block">
+<a href="#" class="block px-4 py-2.5 font-label-bold text-label-bold text-on-surface hover:bg-primary/10">전체 보기</a>
+<a href="#" class="block px-4 py-2.5 font-label-bold text-label-bold text-on-surface hover:bg-primary/10">한식/학식</a>
+<a href="#" class="block px-4 py-2.5 font-label-bold text-label-bold text-on-surface hover:bg-primary/10">분식</a>
+<a href="#" class="block px-4 py-2.5 font-label-bold text-label-bold text-on-surface hover:bg-primary/10">카페</a>
+<div class="border-t border-on-surface/10 my-1"></div>
+<div class="px-4 py-1.5 text-[11px] font-label-bold text-outline-variant uppercase tracking-wider">정렬 및 필터</div>
+<a href="#" class="block px-4 py-2.5 font-label-bold text-label-bold text-on-surface hover:bg-primary/10 flex justify-between items-center">
+<span>거리순 / 별점순</span>
+<span class="material-symbols-outlined text-[16px] text-outline">swap_vert</span>
+</a>
+<a href="#" class="block px-4 py-2.5 font-label-bold text-label-bold text-on-surface hover:bg-primary/10 flex justify-between items-center">
+<span>가격 필터</span>
+<span class="text-[11px] bg-secondary-fixed/30 text-secondary px-1.5 py-0.5 rounded">만원 이하</span>
+</a>
+</div>
+</div>
 </section>
 <!-- Map Card -->
 <section class="glass-card rounded-2xl p-1 h-56 relative overflow-hidden group">
@@ -240,7 +252,7 @@
 <div class="flex justify-between items-start">
 <div>
 <h4 class="font-headline-sm text-headline-sm text-on-surface">건국관 식당</h4>
-<p class="font-label-bold text-label-bold text-outline-variant">$$ • 한식/학식</p>
+<p class="font-label-bold text-label-bold text-outline-variant">만원 이하 • 한식/학식</p>
 </div>
 <div class="flex items-center gap-1 bg-amber-50 px-2 py-1 rounded-lg">
 <span class="material-symbols-outlined text-status-tight text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
@@ -270,7 +282,7 @@
 <div class="flex justify-between items-start">
 <div>
 <h4 class="font-headline-sm text-headline-sm text-on-surface">샐러드 팩토리</h4>
-<p class="font-label-bold text-label-bold text-outline-variant">$$$ • 샐러드/카페</p>
+<p class="font-label-bold text-label-bold text-outline-variant">만원 초과 • 샐러드/카페</p>
 </div>
 <div class="flex items-center gap-1">
 <span class="material-symbols-outlined text-status-tight text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
@@ -292,7 +304,7 @@
 <div class="flex justify-between items-start">
 <div>
 <h4 class="font-headline-sm text-headline-sm text-on-surface">국수나무</h4>
-<p class="font-label-bold text-label-bold text-outline-variant">$ • 일식/면요리</p>
+<p class="font-label-bold text-label-bold text-outline-variant">만원 이하 • 일식/면요리</p>
 </div>
 <div class="flex items-center gap-1">
 <span class="material-symbols-outlined text-status-tight text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>

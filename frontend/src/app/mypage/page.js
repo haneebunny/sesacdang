@@ -202,13 +202,7 @@ export default function MyPage() {
         </section>
       </main>
 
-      {/* Floating Action Button (AI 추천 페이지 유도) */}
-      <Link 
-        href="/ai"
-        className="fixed bottom-24 right-6 w-14 h-14 bg-primary text-white rounded-full shadow-lg flex items-center justify-center border border-crystal-border hover:scale-105 active:scale-95 transition-transform z-40"
-      >
-        <span className="material-symbols-outlined text-[24px]">auto_awesome</span>
-      </Link>
+
     </div>
   );
 }

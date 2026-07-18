@@ -107,7 +107,9 @@ export default function RestaurantDetail({ params }) {
             <div className="flex justify-between items-start">
               <div>
                 <h2 className="font-headline-md text-headline-md text-on-surface font-bold">{shop.name}</h2>
-                <p className="text-on-surface-variant text-body-md mt-0.5">{shop.category} · {shop.priceLevel}</p>
+                <p className="text-on-surface-variant text-body-md mt-0.5">
+                  {shop.category} · {shop.priceLevel === "under_10k" ? "만원 이하" : "만원 초과"}
+                </p>
               </div>
               
               <div className="flex flex-col items-end gap-1">
@@ -275,13 +277,7 @@ export default function RestaurantDetail({ params }) {
         </div>
       </div>
 
-      {/* Floating Action Button (AI 추천 페이지 유도) */}
-      <Link 
-        href="/ai"
-        className="fixed bottom-32 right-6 z-50 w-14 h-14 rounded-full bg-primary-container text-white flex items-center justify-center shadow-xl border border-white/40 active:scale-90 transition-transform hover:scale-105"
-      >
-        <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>auto_awesome</span>
-      </Link>
+
 
       {/* 길찾기 정보 모달 */}
       {showRouteModal && (
