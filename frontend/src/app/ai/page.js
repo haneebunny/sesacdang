@@ -37,7 +37,7 @@ export default function AISearch() {
         matchKeyword = shop.reviews.some((r) => r.tags.includes("혼밥good"));
       }
       if (term.includes("가성비")) {
-        matchKeyword = shop.priceLevel === "$" || shop.reviews.some((r) => r.tags.includes("가성비"));
+        matchKeyword = shop.priceLevel === "under_10k" || shop.reviews.some((r) => r.tags.includes("가성비"));
       }
       if (term.includes("4명") || term.includes("4인석") || term.includes("인원")) {
         matchKeyword = shop.seatClass === "mid" || shop.seatClass === "large";

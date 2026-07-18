@@ -7,8 +7,8 @@ import { usePathname } from "next/navigation";
 export default function BottomNavigation() {
   const pathname = usePathname();
 
-  // 리뷰 작성 페이지 (/restaurants/[id]/review, /review/create)인지 체크하여 숨김
-  const isReviewPage = /^\/restaurants\/\d+\/review$/.test(pathname) || pathname === "/review/create";
+  // 리뷰 작성 페이지 (/restaurants/[id]/review)인지 체크하여 숨김
+  const isReviewPage = /^\/restaurants\/\d+\/review$/.test(pathname);
   if (isReviewPage) {
     return null;
   }
@@ -38,7 +38,7 @@ export default function BottomNavigation() {
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-50 px-4 pb-4">
-      <div className="max-w-md mx-auto h-16 rounded-full bg-white/20 backdrop-blur-3xl border border-white/60 shadow-[0px_8px_32px_rgba(0,0,0,0.04)] flex justify-around items-center px-4">
+      <div className="max-w-md mx-auto h-16 rounded-full bg-surface-container/85 backdrop-blur-2xl border border-white/60 shadow-[0px_8px_32px_rgba(0,0,0,0.04)] flex justify-around items-center px-4">
         {navItems.map((item) => {
           const isActive = pathname === item.href;
           return (

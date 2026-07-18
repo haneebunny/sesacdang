@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect, useRef } from "react";
 import Link from "next/link";
 import KakaoMap from "../components/KakaoMap";
 
@@ -10,7 +10,7 @@ const MOCK_RESTAURANTS = [
     id: 1,
     name: "건국관 식당",
     category: "한식/학식",
-    priceLevel: "$$",
+    priceLevel: "under_10k",
     rating: 4.1,
     walkTime: 5,
     totalTime: 12,
@@ -27,7 +27,7 @@ const MOCK_RESTAURANTS = [
     id: 2,
     name: "샐러드 팩토리",
     category: "샐러드/카페",
-    priceLevel: "$$$",
+    priceLevel: "over_10k",
     rating: 4.5,
     walkTime: 8,
     totalTime: 18,
@@ -44,7 +44,7 @@ const MOCK_RESTAURANTS = [
     id: 3,
     name: "국수나무",
     category: "일식/면요리",
-    priceLevel: "$",
+    priceLevel: "under_10k",
     rating: 3.9,
     walkTime: 12,
     totalTime: 25,
@@ -64,7 +64,28 @@ export default function Home() {
   const [beplpayFilter, setBeplpayFilter] = useState(true);
   const [safezoneFilter, setSafezoneFilter] = useState(false);
   const [sortBy, setSortBy] = useState("distance"); // "distance" | "rating"
-  
+  const [categoryFilter, setCategoryFilter] = useState(null); // null = 전체
+  const [priceFilter, setPriceFilter] = useState(null); // null | "under_10k" | "over_10k"
+  const [isCategoryOpen, setIsCategoryOpen] = useState(false);
+
+  // 카테고리 목록 동적 추출
+  const categories = useMemo(() => {
+    const set = new Set(MOCK_RESTAURANTS.map((s) => s.category));
+    return ["전체", ...Array.from(set)];
+  }, []);
+
+  // 카테고리 드롭다운 바깥 클릭 시 닫기
+  const categoryRef = useRef(null);
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (categoryRef.current && !categoryRef.current.contains(e.target)) {
+        setIsCategoryOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   // 상황 입력 상태 (⏱ 잔여 시간, 👥 인원, 💰 예산)
   const [timeLeft, setTimeLeft] = useState(40);
   const [peopleCount, setPeopleCount] = useState(1);
@@ -85,10 +106,16 @@ export default function Home() {
       // 2. 세이프존 필터 적용 (초록 신호등🟢만 통과)
       if (safezoneFilter && shop.signal !== "green") return false;
 
-      // 3. 상황 입력 필터 적용 (예산 초과 필터링 예시)
-      const priceTextToNumber = { "$": 7000, "$$": 10000, "$$$": 15000 };
+      // 3. 상황 입력 필터 적용 (예산 초과 필터링)
+      const priceTextToNumber = { "under_10k": 8000, "over_10k": 13000 };
       const estimatedPrice = priceTextToNumber[shop.priceLevel] || 8000;
       if (estimatedPrice > budget) return false;
+
+      // 4. 카테고리 필터 적용
+      if (categoryFilter && shop.category !== categoryFilter) return false;
+
+      // 5. 가격 필터 적용
+      if (priceFilter && shop.priceLevel !== priceFilter) return false;
 
       return true;
     }).sort((a, b) => {
@@ -98,7 +125,7 @@ export default function Home() {
         return b.rating - a.rating;
       }
     });
-  }, [beplpayFilter, safezoneFilter, budget, sortBy]);
+  }, [beplpayFilter, safezoneFilter, budget, sortBy, categoryFilter, priceFilter]);
 
   // 상황 저장 핸들러
   const handleSaveSituation = () => {
@@ -149,7 +176,7 @@ export default function Home() {
       </section>
 
       {/* Filter Chips */}
-      <section className="flex gap-2 overflow-x-auto py-1 -mx-margin_mobile px-margin_mobile">
+      <section className="flex gap-2 py-1 -mx-margin_mobile px-margin_mobile overflow-visible">
         <button 
           onClick={() => setBeplpayFilter(!beplpayFilter)}
           className={`flex-none px-4 py-2 rounded-full font-label-bold text-label-bold flex items-center gap-1 cursor-pointer transition-all ${
@@ -170,18 +197,82 @@ export default function Home() {
         >
           세이프존 {safezoneFilter ? "ON" : "OFF"}
         </button>
-        <button className="flex-none bg-white/40 backdrop-blur-xl border border-white/80 text-secondary px-4 py-2 rounded-full font-label-bold text-label-bold flex items-center gap-1">
-          카테고리 <span className="material-symbols-outlined text-[16px]">expand_more</span>
-        </button>
-        <button className="flex-none bg-white/40 backdrop-blur-xl border border-white/80 text-secondary px-4 py-2 rounded-full font-label-bold text-label-bold">
-          가격
-        </button>
-        <button 
-          onClick={() => setSortBy(sortBy === "distance" ? "rating" : "distance")}
-          className="flex-none bg-white/40 backdrop-blur-xl border border-white/80 text-secondary px-4 py-2 rounded-full font-label-bold text-label-bold flex items-center gap-0.5"
-        >
-          {sortBy === "distance" ? "거리순" : "별점순"} <span className="material-symbols-outlined text-[14px]">swap_vert</span>
-        </button>
+
+        {/* 카테고리 드롭다운 */}
+        <div ref={categoryRef} className="relative flex-none">
+          <button
+            onClick={() => setIsCategoryOpen(!isCategoryOpen)}
+            className={`px-4 py-2 rounded-full font-label-bold text-label-bold flex items-center gap-1 cursor-pointer transition-all ${
+              categoryFilter || priceFilter || sortBy !== "distance"
+                ? "bg-primary-container text-white shadow-md shadow-primary-container/20"
+                : "bg-white/40 backdrop-blur-xl border border-white/80 text-secondary"
+            }`}
+          >
+            {categoryFilter || "카테고리"}
+            {(priceFilter || sortBy !== "distance") && (
+              <span className="text-[10px] bg-white/20 px-1 py-0.5 rounded ml-1 flex items-center gap-0.5">
+                {priceFilter ? (priceFilter === "under_10k" ? "💰≤1만" : "💰>1만") : ""} {sortBy === "rating" ? "⭐" : ""}
+              </span>
+            )}
+            <span className={`material-symbols-outlined text-[16px] transition-transform duration-200 ${
+              isCategoryOpen ? "rotate-180" : ""
+            }`}>expand_more</span>
+          </button>
+          {isCategoryOpen && (
+            <div className="absolute top-full left-0 mt-2 z-50 bg-white/90 backdrop-blur-xl border border-white/80 rounded-2xl shadow-xl overflow-hidden min-w-[170px]">
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => {
+                    setCategoryFilter(cat === "전체" ? null : cat);
+                    setIsCategoryOpen(false);
+                  }}
+                  className={`w-full text-left px-4 py-2.5 font-label-bold text-label-bold transition-colors hover:bg-primary/10 ${
+                    (cat === "전체" && !categoryFilter) || cat === categoryFilter
+                      ? "text-primary font-bold bg-primary/5"
+                      : "text-on-surface"
+                  }`}
+                >
+                  {cat === "전체" ? "전체 보기" : cat}
+                  {((cat === "전체" && !categoryFilter) || cat === categoryFilter) && (
+                    <span className="material-symbols-outlined text-primary text-[14px] float-right">check</span>
+                  )}
+                </button>
+              ))}
+              
+              <div className="border-t border-on-surface/10 my-1"></div>
+              <div className="px-4 py-1.5 text-[11px] font-label-bold text-outline-variant uppercase tracking-wider">
+                정렬 및 필터
+              </div>
+              
+              {/* 정렬 기준 토글 버튼 */}
+              <button
+                onClick={() => setSortBy(sortBy === "distance" ? "rating" : "distance")}
+                className="w-full text-left px-4 py-2.5 font-label-bold text-label-bold transition-colors hover:bg-primary/10 text-on-surface flex justify-between items-center"
+              >
+                <span>{sortBy === "distance" ? "거리순 정렬" : "별점순 정렬"}</span>
+                <span className="material-symbols-outlined text-[16px] text-outline">swap_vert</span>
+              </button>
+              
+              {/* 가격 필터 토글 버튼 */}
+              <button
+                onClick={() => {
+                  const levels = [null, "under_10k", "over_10k"];
+                  const idx = levels.indexOf(priceFilter);
+                  setPriceFilter(levels[(idx + 1) % levels.length]);
+                }}
+                className="w-full text-left px-4 py-2.5 font-label-bold text-label-bold transition-colors hover:bg-primary/10 text-on-surface flex justify-between items-center"
+              >
+                <span>가격: {priceFilter ? (priceFilter === "under_10k" ? "만원 이하" : "만원 초과") : "전체"}</span>
+                {priceFilter && (
+                  <span className="text-[11px] bg-secondary-fixed/30 text-secondary px-1.5 py-0.5 rounded font-bold">
+                    {priceFilter === "under_10k" ? "≤1만" : ">1만"}
+                  </span>
+                )}
+              </button>
+            </div>
+          )}
+        </div>
       </section>
 
       {/* Map Card */}
@@ -190,17 +281,11 @@ export default function Home() {
       </section>
 
       {/* List Heading */}
-      <section className="flex justify-between items-end pt-2">
+      <section className="flex items-end pt-2">
         <div className="flex items-baseline gap-2">
           <h3 className="font-headline-sm text-headline-sm text-on-surface font-bold">지금 갈 수 있는 곳</h3>
           <span className="font-headline-sm text-primary font-bold">{filteredRestaurants.length}곳</span>
         </div>
-        <button 
-          onClick={() => setSortBy(sortBy === "distance" ? "rating" : "distance")}
-          className="flex items-center gap-1 font-label-bold text-label-bold text-on-surface-variant cursor-pointer hover:opacity-80"
-        >
-          {sortBy === "distance" ? "거리순" : "별점순"} <span className="material-symbols-outlined text-[16px]">swap_vert</span>
-        </button>
       </section>
 
       {/* Restaurant List */}
@@ -258,7 +343,9 @@ export default function Home() {
                   <div className="flex justify-between items-start">
                     <div>
                       <h4 className="font-headline-sm text-headline-sm text-on-surface font-bold">{shop.name}</h4>
-                      <p className="font-label-bold text-label-bold text-outline-variant mt-0.5">{shop.priceLevel} • {shop.category}</p>
+                      <p className="font-label-bold text-label-bold text-outline-variant mt-0.5">
+                        {shop.priceLevel === "under_10k" ? "만원 이하" : "만원 초과"} • {shop.category}
+                      </p>
                     </div>
                     <div className="flex items-center gap-1 bg-amber-50 px-2 py-1 rounded-lg border border-amber-200">
                       <span className="material-symbols-outlined text-status-tight text-[18px] font-bold">star</span>
@@ -291,13 +378,6 @@ export default function Home() {
         )}
       </section>
 
-      {/* FAB (AI 추천/검색창으로 연결) */}
-      <Link 
-        href="/ai"
-        className="fixed bottom-24 right-6 w-14 h-14 rounded-full bg-primary-container text-white border-2 border-white/60 shadow-xl flex items-center justify-center active:scale-90 hover:scale-105 transition-all z-40 cursor-pointer"
-      >
-        <span className="material-symbols-outlined text-[28px] font-bold">auto_awesome</span>
-      </Link>
 
       {/* Situation Edit Modal */}
       {isModalOpen && (
@@ -370,7 +450,7 @@ export default function Home() {
             <div className="flex gap-2 pt-4">
               <button 
                 onClick={() => setIsModalOpen(false)}
-                className="flex-1 py-3 rounded-xl font-label-bold border border-white/80 text-outline-variant hover:bg-white/20 active:scale-95 transition-all"
+                className="flex-1 py-3 rounded-xl font-label-bold border border-white/80 text-secondary bg-white/40 hover:bg-white/80 active:scale-95 transition-all"
               >
                 취소
               </button>

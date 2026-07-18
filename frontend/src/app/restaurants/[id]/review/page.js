@@ -70,23 +70,25 @@ export default function CreateReview({ params }) {
   };
 
   return (
-    <div className="min-h-screen bg-surface text-on-surface antialiased pb-32">
+    <div className="min-h-screen bg-background text-on-surface antialiased pb-32">
       {/* Top App Bar (Fixed) */}
-      <header className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-md h-16 z-50 flex items-center justify-between px-margin_mobile bg-surface/85 backdrop-blur-lg border-b border-white/60 shadow-sm">
-        <button 
-          onClick={() => router.back()}
-          aria-label="닫기" 
-          className="p-2 -ml-2 active:scale-95 transition-transform cursor-pointer"
-        >
-          <span className="material-symbols-outlined text-on-surface">close</span>
-        </button>
-        <h1 className="font-headline-sm text-headline-sm text-on-surface font-bold">리뷰 쓰기</h1>
-        <button 
-          onClick={handleSubmit}
-          className="font-headline-sm text-headline-sm text-primary-container font-bold hover:opacity-80 transition-opacity cursor-pointer border-none bg-transparent"
-        >
-          등록
-        </button>
+      <header className="fixed top-0 left-0 right-0 z-50">
+        <div className="max-w-md mx-auto w-full h-16 bg-white/30 backdrop-blur-2xl border-b border-white/80 shadow-sm flex items-center justify-between px-margin_mobile">
+          <button 
+            onClick={() => router.back()}
+            aria-label="닫기" 
+            className="p-2 -ml-2 active:scale-95 transition-transform cursor-pointer border-none bg-transparent"
+          >
+            <span className="material-symbols-outlined text-on-surface">close</span>
+          </button>
+          <h1 className="font-headline-sm text-headline-sm text-on-surface font-bold">리뷰 쓰기</h1>
+          <button 
+            onClick={handleSubmit}
+            className="font-headline-sm text-headline-sm text-primary-container font-bold hover:opacity-80 transition-opacity cursor-pointer border-none bg-transparent"
+          >
+            등록
+          </button>
+        </div>
       </header>
 
       {/* Main Content Area */}

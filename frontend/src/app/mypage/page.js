@@ -63,13 +63,7 @@ export default function MyPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#98d868]/15 via-transparent to-[#3f674b]/10 pb-36 text-on-surface">
-      {/* Background Decorative Element */}
-      <div className="fixed top-0 left-0 w-full h-full pointer-events-none -z-10 overflow-hidden">
-        <div className="absolute top-1/4 -left-10 w-64 h-64 bg-primary-fixed/20 opacity-20 blur-[100px] rounded-full"></div>
-        <div className="absolute bottom-1/4 -right-10 w-72 h-72 bg-secondary-fixed-dim/20 opacity-20 blur-[100px] rounded-full"></div>
-      </div>
-
+    <div className="min-h-screen bg-background pb-36 text-on-surface">
       <main className="pt-24 px-margin_mobile space-y-6 max-w-md mx-auto w-full flex-1">
         {/* Profile Card */}
         <section className="glass-card rounded-2xl p-6 flex flex-col items-center shadow-sm bg-white/30">
@@ -208,13 +202,7 @@ export default function MyPage() {
         </section>
       </main>
 
-      {/* Floating Action Button (AI 추천 페이지 유도) */}
-      <Link 
-        href="/ai"
-        className="fixed bottom-24 right-6 w-14 h-14 bg-primary text-white rounded-full shadow-lg flex items-center justify-center border border-crystal-border hover:scale-105 active:scale-95 transition-transform z-40"
-      >
-        <span className="material-symbols-outlined text-[24px]">auto_awesome</span>
-      </Link>
+
     </div>
   );
 }
